@@ -1,12 +1,19 @@
-import React from 'react';
-import {Text, View} from 'react-native';
+import * as React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-// import { Container } from './styles';
+import Home from './scenes/Home';
+import Settings from './scenes/Settings';
 
-const src: React.FC = () => (
-  <View>
-    <Text>Hello World</Text>
-  </View>
-);
+const Tab = createBottomTabNavigator();
 
-export default src;
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Settings" component={Settings} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+}
