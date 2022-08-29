@@ -1,19 +1,8 @@
-import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import React from 'react';
+import Routes from './routes';
 
-import Home from './scenes/Home';
-import Settings from './scenes/Settings';
+const App: React.FC = () => {
+  return <Routes />;
+};
 
-const Tab = createBottomTabNavigator();
-
-export default function App() {
-  return (
-    <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Settings" component={Settings} />
-      </Tab.Navigator>
-    </NavigationContainer>
-  );
-}
+export default App;

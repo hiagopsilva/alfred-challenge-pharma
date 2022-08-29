@@ -4,7 +4,7 @@ import {Text, View} from 'react-native';
 
 type Props = {};
 
-const Settings: FC<Props> = () => {
+const Favorites: FC<Props> = () => {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Text>Settings!</Text>
@@ -12,4 +12,4 @@ const Settings: FC<Props> = () => {
   );
 };
 
-export default Settings;
+export default Favorites;

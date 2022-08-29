@@ -33,6 +33,7 @@
       "no-use-before-define": "off",
       "prettier/prettier": "error",
       "react/function-component-definition": "off",
+      "@typescript-eslint/ban-types": "off",
       "import/extensions": [
         "error",
         "ignorePackages",
