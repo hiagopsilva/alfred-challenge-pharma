@@ -68,7 +68,11 @@ export const ContentCard = styled.View`
   margin-left: 16px;
 `;
 
-export const Text = styled.Text`
-  font-size: 18px;
+export const Text = styled.Text.attrs({
+  numberOfLines: 1,
+})`
+  font-size: 16px;
   font-weight: bold;
+
+  text-transform: capitalize;
 `;
