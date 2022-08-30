@@ -2,17 +2,14 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable react/no-unstable-nested-components */
 import React, {FC, useEffect, useRef, useState} from 'react';
-import {ActivityIndicator, Alert} from 'react-native';
+import {ActivityIndicator} from 'react-native';
+import Card from '../../components/Card';
 import ModalDropDown from '../../components/ModalDropDown';
 import request from '../../services';
 
 import {
-  Avatar,
-  Card,
   Container,
-  ContentCard,
   Icon,
-  Text,
   TextInput,
   WrapperInput,
   WrapperList,
@@ -73,18 +70,7 @@ const Home: FC<Props> = () => {
             )}
             data={dataUsers}
             renderItem={({item}: any) => (
-              <Card key={item.login.uuid} onPress={() => handlePress(item)}>
-                <Avatar source={{uri: item.picture.large}} />
-                <ContentCard>
-                  <Text>
-                    {item.name.title} {item.name.first} {item.name.last}
-                  </Text>
-                  <Text>{item.gender}</Text>
-                  <Text>
-                    {item.location.city} - {item.location.state}
-                  </Text>
-                </ContentCard>
-              </Card>
+              <Card item={item} handlePress={handlePress} />
             )}
             onEndReachedThreshold={0.1}
             onEndReached={fetchMoreUsers}
