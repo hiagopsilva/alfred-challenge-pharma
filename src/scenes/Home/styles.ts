@@ -7,8 +7,6 @@ export const Container = styled.View`
 export const WrapperSearch = styled.View`
   width: 100%;
   height: 90px;
-
-  padding: 0 16px;
 `;
 
 export const WrapperInput = styled.View`
@@ -39,12 +37,38 @@ export const Icon = styled.View`
   border-bottom-right-radius: 4px;
 `;
 
-export const WrapperList = styled.View``;
+export const WrapperList = styled.FlatList`
+  flex: 1;
 
-export const Card = styled.View``;
+  padding: 0 16px;
+`;
 
-export const Avatar = styled.View``;
+export const Card = styled.View`
+  width: 100%;
 
-export const ContentCard = styled.View``;
+  padding: 8px 0;
+  margin-bottom: 18px;
 
-export const Text = styled.Text``;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const Avatar = styled.View`
+  width: 80px;
+  height: 80px;
+
+  border-radius: 50px;
+
+  background-color: gray;
+`;
+
+export const ContentCard = styled.View`
+  width: 65%;
+
+  margin-left: 16px;
+`;
+
+export const Text = styled.Text`
+  font-size: 18px;
+  font-weight: bold;
+`;

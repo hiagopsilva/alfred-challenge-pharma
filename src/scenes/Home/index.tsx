@@ -1,4 +1,7 @@
+/* eslint-disable no-console */
+/* eslint-disable react/no-unstable-nested-components */
 import React, {FC} from 'react';
+import {ActivityIndicator} from 'react-native';
 
 import {
   Avatar,
@@ -18,23 +21,30 @@ type Props = {};
 const Home: FC<Props> = () => {
   return (
     <Container>
-      <WrapperSearch>
-        <WrapperInput>
-          <TextInput />
-          <Icon />
-        </WrapperInput>
-      </WrapperSearch>
-
-      <WrapperList>
-        <Card>
-          <Avatar />
-          <ContentCard>
-            <Text>Hiago</Text>
-            <Text>Hiago</Text>
-            <Text>Hiago</Text>
-          </ContentCard>
-        </Card>
-      </WrapperList>
+      <WrapperList
+        ListHeaderComponent={() => (
+          <WrapperSearch>
+            <WrapperInput>
+              <TextInput />
+              <Icon />
+            </WrapperInput>
+          </WrapperSearch>
+        )}
+        data={[1, 2, 3, 4, 5, 6]}
+        renderItem={() => (
+          <Card>
+            <Avatar />
+            <ContentCard>
+              <Text>Titulo 1</Text>
+              <Text>Titulo 2</Text>
+              <Text>Titulo 3</Text>
+            </ContentCard>
+          </Card>
+        )}
+        onEndReachedThreshold={0.1}
+        onEndReached={() => console.log('ok')}
+        ListFooterComponent={<ActivityIndicator size="large" color="#0000ff" />}
+      />
     </Container>
   );
 };
