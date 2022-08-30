@@ -53,13 +53,13 @@ export const Card = styled.View`
   align-items: center;
 `;
 
-export const Avatar = styled.View`
+export const Avatar = styled.Image`
   width: 80px;
   height: 80px;
 
   border-radius: 50px;
 
-  background-color: gray;
+  /* background-color: gray; */
 `;
 
 export const ContentCard = styled.View`
