@@ -43,7 +43,7 @@ export const WrapperList = styled.FlatList`
   padding: 0 16px;
 `;
 
-export const Card = styled.View`
+export const Card = styled.TouchableOpacity`
   width: 100%;
 
   padding: 8px 0;

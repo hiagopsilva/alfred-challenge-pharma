@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable react/no-unstable-nested-components */
-import React, {FC, useEffect, useState} from 'react';
-import {ActivityIndicator} from 'react-native';
+import React, {FC, useEffect, useRef, useState} from 'react';
+import {ActivityIndicator, Alert} from 'react-native';
+import ModalDropDown from '../../components/ModalDropDown';
 import request from '../../services';
 
 import {
@@ -24,6 +25,9 @@ const Home: FC<Props> = () => {
   const [dataUsers, setDataUsers] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
+  const [dataUser, setDataUser] = useState<Partial<any>>({});
+
+  const refComponent = useRef<any>();
 
   const fetchDataUsers = async () => {
     setLoading(true);
@@ -42,6 +46,11 @@ const Home: FC<Props> = () => {
     setPage(prevState => prevState + 1);
   };
 
+  const handlePress = (value: any) => {
+    setDataUser(value);
+    refComponent.current.open();
+  };
+
   useEffect(() => {
     fetchDataUsers();
   }, []);
@@ -52,18 +61,19 @@ const Home: FC<Props> = () => {
         <ActivityIndicator size="large" color="#0000ff" />
       ) : (
         <Container>
+          <ModalDropDown refComponent={refComponent} dataUser={dataUser} />
           <WrapperList
             ListHeaderComponent={() => (
               <WrapperSearch>
                 <WrapperInput>
-                  <TextInput />
+                  <TextInput placeholder="Pesquisar..." />
                   <Icon />
                 </WrapperInput>
               </WrapperSearch>
             )}
             data={dataUsers}
-            renderItem={({item, index}: any) => (
-              <Card key={index}>
+            renderItem={({item}: any) => (
+              <Card key={item.login.uuid} onPress={() => handlePress(item)}>
                 <Avatar source={{uri: item.picture.large}} />
                 <ContentCard>
                   <Text>
