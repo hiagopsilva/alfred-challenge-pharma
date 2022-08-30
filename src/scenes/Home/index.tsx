@@ -1,14 +1,41 @@
 import React, {FC} from 'react';
-import {Text, View} from 'react-native';
-// import { Wrapper } from './styles';
+
+import {
+  Avatar,
+  Card,
+  Container,
+  ContentCard,
+  Icon,
+  Text,
+  TextInput,
+  WrapperInput,
+  WrapperList,
+  WrapperSearch,
+} from './styles';
 
 type Props = {};
 
 const Home: FC<Props> = () => {
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Home!</Text>
-    </View>
+    <Container>
+      <WrapperSearch>
+        <WrapperInput>
+          <TextInput />
+          <Icon />
+        </WrapperInput>
+      </WrapperSearch>
+
+      <WrapperList>
+        <Card>
+          <Avatar />
+          <ContentCard>
+            <Text>Hiago</Text>
+            <Text>Hiago</Text>
+            <Text>Hiago</Text>
+          </ContentCard>
+        </Card>
+      </WrapperList>
+    </Container>
   );
 };
 
